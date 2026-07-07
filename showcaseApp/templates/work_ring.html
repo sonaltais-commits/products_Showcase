@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Services</title>
+  <link rel="stylesheet" href="{% static 'css/ring.css' %}">
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<body class="fulvh">
+
+  <div class="grid-center" id="work">
+    <h1 class="position-absolute">SERVICES</h1>
+    <div id="static-tile" class=""></div>
+
+    <div class="ring-3d"></div>
+<!--    </div>-->
+  </div>
+  <div class="instruct"><h3>click on card to see detail samples</h3></div>
+  <script>
+    // 1. Get the raw project data from Django
+    const rawProjects = {{ projects_json|safe }};
+
+    // 2. Get the static prefix (e.g., "/static/")
+    const staticPrefix = "{% static '' %}";
+
+    // 3. Process the data and assign it DIRECTLY to window.projectsData
+    window.projectsData = rawProjects.map(p => ({
+        ...p,
+        // Resolve the static path: staticPrefix + 'images/python.png'
+        Image: p.Image.startsWith('http') ? p.Image : staticPrefix + p.Image
+    }));
+
+    // IMPORTANT: Make sure the raw JSON itself is clean (e.g., no stray quotes)
+  </script>
+
+  <script src="{% static 'js/ring.js' %}"></script>
+</body>
+</html>

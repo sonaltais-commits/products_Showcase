@@ -1,0 +1,6 @@
+# Ignore the entire migration folder
+migration/
+migrations/
+
+# Ignore python virtual environment named ais
+ais/

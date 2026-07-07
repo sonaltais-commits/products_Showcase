@@ -1,0 +1,196 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCR Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #091e3e, #1a3b6d, #091e3e);
+    }
+    .category-card {
+      background: radial-gradient(circle at bottom center, #6530ff, #091e3e, #000000);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .gallery-item {
+      flex: 0.5 1 220px;
+      height: 20rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+      z-index: 2;
+    }
+    .gallery-img, .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.35s ease;
+    }
+    .gallery-item:hover .gallery-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Both image and video will have same height */
+/* Layout */
+/* Left Flow Chart */
+.flow-box{
+    width:100%;
+    height:40rem;              /* Same height as video */
+    background:#000;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.15);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    padding:12px;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Image */
+.flow-img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+}
+
+/* Video */
+.video-box{
+    width:100%;
+    height:40rem;
+    border-radius:18px;
+    overflow:hidden;
+    background:#000;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.video-box video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+  </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+  <div class="max-w-7xl mx-auto space-y-16">
+
+
+     <!-- Category: General Text Detection -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">General Text Detection</h2>
+      <p class="text-gray-300">Detect and extract text from images or scanned documents.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" >
+          <video autoplay loop muted>
+            <source src="{% static 'images/ocr/ocrtext.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="gallery-title">OCR Video Example</div>
+        </div>
+        <div class="gallery-item">
+          <img src="{% static 'images/ocr/ocrexample.png' %}" alt="Text Detection Example" class="gallery-img">
+          <div class="gallery-title">Before OCR</div>
+        </div>
+        <div class="gallery-item">
+          <img src="{% static 'images/ocr/ocrafter.png' %}" alt="Extracted Text from Example" class="gallery-img">
+          <div class="gallery-title">After OCR</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Category: Identity Card Text Recognition -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Identity Card Text Recognition</h2>
+      <p class="text-gray-300">Extract text from identity cards and official documents using OCR technology.</p>
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="{% static 'images/ocr/ocr3.jpg' %}" alt="ID Card Text Extraction" class="gallery-img">
+          <div class="gallery-title">ID Card Example</div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Category: Receipt Text Detection -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Receipt Text Detection</h2>
+      <p class="text-gray-300">Extract text from receipts for accounting, expense tracking, and financial analysis.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" >
+          <img src="{% static 'images/ocr/ocr_new.png' %}" alt="Receipt Text Detection" class="gallery-img">
+          <div class="gallery-title">Receipt Example</div>
+        </div>
+        <div class="gallery-item">
+          <img src="{% static 'images/ocr/ocr7.png' %}" alt="Receipt Text Example" class="gallery-img">
+          <div class="gallery-title">Receipt OCR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: Handwritten Text Detection -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Handwritten Text Detection</h2>
+      <p class="text-gray-300">Detect handwritten notes and convert them into digital text.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" >
+          <img src="{% static 'images/ocr/ocr8.PNG' %}" alt="Handwritten Text Detection" class="gallery-img">
+          <div class="gallery-title">Handwriting OCR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: E-commerce / Logistics Label Text Detection -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">E-commerce / Logistics Label Text Detection</h2>
+      <p class="text-gray-300">Extract text from delivery and logistics labels for inventory and shipment automation.</p>
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="{% static 'images/ocr/ocr6.png' %}" alt="Delivery Label Text Detection" class="gallery-img">
+          <div class="gallery-title">Label OCR</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

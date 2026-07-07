@@ -1,0 +1,241 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenAI Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+
+body{
+    background: linear-gradient(135deg, #091e3e, #1a3b6d, #091e3e);
+}
+
+.category-card{
+    background: radial-gradient(circle at bottom center,#6530ff,#091e3e,#000000);
+    border:2px solid rgba(255,255,255,.15);
+    border-radius:18px;
+    padding:2rem;
+    box-shadow:0 12px 30px rgba(0,0,0,.45);
+    text-align: center;
+}
+
+.gallery-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1.5rem;
+    margin-top:1.5rem;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    background:#000;
+    width:100%;
+    max-width:430px;
+    transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.gallery-item:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 30px rgba(255,255,255,.35);
+}
+
+.gallery-img,
+.gallery-item video{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
+}
+
+.gallery-title{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:16px;
+    background:rgba(0,0,0,.75);
+    color:#fff;
+    font-size:1rem;
+    font-weight:600;
+    opacity:0;
+    transform:translateY(100%);
+    transition:.35s;
+}
+
+.gallery-item:hover .gallery-title{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style></head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+
+<div class="max-w-7xl mx-auto space-y-12">
+
+    <!-- Hero -->
+
+    <div class="text-center">
+
+        <h1 class="text-5xl font-bold mb-5">
+            GenAI Gallery
+        </h1>
+
+        <p class="text-lg text-gray-300 max-w-4xl mx-auto">
+            Explore AI-generated images, videos, product visualizations, interior designs,
+            futuristic concepts, and creative digital content created using Generative AI.
+        </p>
+
+    </div>
+
+    <!-- Category 1 -->
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Product Visualization
+        </h2>
+
+        <p class="text-gray-300">
+            GenAI-generated product demos and promotional videos.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item" style="max-width:430px;">
+                <video autoplay loop muted playsinline class="gallery-img">
+                    <source src="{% static 'images/gen_ai/genai3.mp4' %}" type="video/mp4">
+                </video>
+                <div class="gallery-title">Shoes Visualization - Different Angles</div>
+            </div>
+
+            <div class="gallery-item" style="max-width:430px;">
+                <video autoplay loop muted playsinline class="gallery-img">
+                    <source src="{% static 'images/gen_ai/genai9.mp4' %}" type="video/mp4">
+                </video>
+                <div class="gallery-title">GenAI Smartphone Demo</div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Category 2 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            AI-Generated Characters & Fun
+        </h2>
+
+        <p class="text-gray-300">
+            Playful and creative GenAI visuals bringing imagination to life.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item" style="max-width:430px;">
+                <img src="{% static 'images/gen_ai/genai1.gif' %}" alt="Panda Riding Horse" class="gallery-img">
+                <div class="gallery-title">GenAI Panda Riding a Horse</div>
+            </div>
+
+            <div class="gallery-item" style="max-width:430px;">
+                <video autoplay loop muted playsinline class="gallery-img">
+                    <source src="{% static 'images/gen_ai/genai2.mp4' %}" type="video/mp4">
+                </video>
+                <div class="gallery-title">GenAI Boy with Moustache</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Category 3 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Futuristic Concepts
+        </h2>
+
+        <p class="text-gray-300">
+            Exploring AI's vision of advanced technology and future living.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item" style="max-width:430px;">
+                <img src="{% static 'images/gen_ai/genai4.jpeg' %}" alt="Handshake with Android" class="gallery-img">
+                <div class="gallery-title">Man Handshaking with Android</div>
+            </div>
+
+            <div class="gallery-item" style="max-width:430px;">
+                <img src="{% static 'images/gen_ai/genai5.jpeg' %}" alt="Futuristic Kitchen" class="gallery-img">
+                <div class="gallery-title">Family in Futuristic Kitchen</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 4 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Interior Design
+        </h2>
+
+        <p class="text-gray-300">
+            Transforming spaces: before and after with AI imagination.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item" style="max-width:430px;">
+                <img src="{% static 'images/gen_ai/genai7.jpeg' %}" alt="Empty vs Furnished Room" class="gallery-img">
+                <div class="gallery-title">Empty Room vs Furnished Room</div>
+            </div>
+
+            <div class="gallery-item" style="max-width:430px;">
+                <img src="{% static 'images/gen_ai/genai8.jpeg' %}" alt="Meeting Room Reflection" class="gallery-img">
+                <div class="gallery-title">Meeting Room with Reflections</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 5 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Medical & Scientific Visualization
+        </h2>
+
+        <p class="text-gray-300">
+            AI-generated images for research, education, and healthcare.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item" style="max-width:600px;">
+                <img src="{% static 'images/gen_ai/genai6.jpeg' %}" alt="Heart Visualization" class="gallery-img">
+                <div class="gallery-title">AI-Generated Human Heart</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

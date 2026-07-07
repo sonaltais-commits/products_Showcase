@@ -1,0 +1,207 @@
+/* (Start of ring.css) */
+* { margin: 0; padding: 0; outline: 0px solid #f00; }
+
+/* === THEME UPDATE: Modern SaaS blue/purple palette === */
+:root {
+    --success: #10d80c;
+    --danger: #d8230c;
+    /* NEW: theme tokens for consistent reuse */
+    --bg-deep: #05060f;
+    --bg-navy: #0a0e1f;
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-glow: rgba(99, 102, 241, 0.35);
+    --card-border: rgba(255, 255, 255, 0.08);
+}
+
+body { font-family: "Helvetica", serif; }
+.fulvh {
+    height: 100vh;
+    /* CHANGED: deep navy/black base instead of flat black */
+    background: linear-gradient(180deg, #05060f, #0a0e1f);
+}
+.center { text-align: center; align-content: center; }
+.grid-center {
+    display: grid;
+    place-items: center;
+    overflow: clip;
+    width: 100%;
+    min-height: 100vh;
+    /* CHANGED: dark navy/blue/purple radial gradient (was light purple/gray) */
+    background: radial-gradient(circle at center, #10142b, #1a1035, #05060f 80%);
+    perspective: calc(var(--projectCount) * 50px);
+    perspective-origin: center;
+}
+
+/* CHANGED: "SERVICES" headline now uses a blue-purple gradient text effect */
+h1 {
+    font-size: 8rem;
+    color: #fff;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #60a5fa);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* NEW: subtle animated shimmer on the gradient text */
+    animation: shine 6s linear infinite;
+    position: absolute;
+    transform: translateY(-37vh);
+}
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+.position-absolute { position: absolute; }
+
+.ring-3d {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    transform-style: preserve-3d;
+    animation: animate calc(var(--projectCount) * 2.5s) linear infinite;
+    transform: rotatex(0deg) rotatey(0deg);
+    scale: 2.5;
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+}
+
+.ring-3d:hover { animation-play-state: paused; }
+@keyframes animate { 0% { transform: rotatey(0deg); } 100% { transform: rotatey(360deg); } }
+.ring-3d:has(.clicked) { animation-play-state: paused; }
+
+#static-tile {
+    border-radius: 10px;
+    /* CHANGED: navy/purple radial instead of plain gray/black */
+    background: radial-gradient(circle at top center, #1a1035, #05060f);
+    scale: 0;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.3s linear;
+    position: relative;
+}
+.scale { scale: 2 !important; opacity: 1 !important; }
+
+.tile {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0; left: 0;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * var(--total))) translateZ(calc(var(--projectCount) * -53px));
+    transition: all 1s ease-in-out;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.ring-3d:has(.tile.clicked) .tile:not(.clicked) { pointer-events: none; opacity: 0.1; }
+
+/* CHANGED: project-card now has a blue/purple gradient + subtle glow + border */
+.project-card {
+    width: 300px;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background: radial-gradient(circle at bottom center, #2b1f5e, #12102a, #05060f);
+    border-radius: 10px;
+    outline: 1px solid var(--card-border);
+    /* NEW: soft glow, not too bright */
+    box-shadow: 0 0 25px var(--accent-glow), 0 8px 20px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    /* NEW: smooth hover transition */
+    transition: transform 0.35s ease, box-shadow 0.35s ease, outline-color 0.35s ease;
+}
+
+/* NEW: hover effect — slight scale + stronger glow */
+.project-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.5), 0 12px 28px rgba(0, 0, 0, 0.6);
+    outline-color: rgba(139, 92, 246, 0.4);
+}
+
+.project-card .project-grid .project-image {
+    grid-area: 2/1/5/7;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project-desc {
+    font-size: small;
+    font-weight: 200;
+    /* NEW: slightly muted for premium feel */
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* CHANGED: links now use accent blue instead of plain white */
+a.project-link {
+    color: var(--accent-blue);
+    transition: color 0.25s ease;
+}
+a.project-link:hover {
+    color: var(--accent-purple);
+}
+.project-publish {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.instruct {
+    background: none;
+    position: relative;
+    /* CHANGED: wheat replaced with soft blue-white for theme consistency */
+    color: #cbd5e1;
+    text-align: center;
+    bottom: 13%;
+}
+
+.more_arrow{
+    display:flex; justify-content: center; align-items: center; padding-top: 0.5em;
+}
+
+.project-card .project-grid .project-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 5px 5px 5px;
+    object-fit: contain;
+}
+
+.tile-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  z-index: 10;
+  /* NEW: subtle hover feedback */
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.tile-close:hover {
+  color: var(--accent-purple);
+  transform: scale(1.1);
+}
+
+.more_arrow a.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.more_arrow a.project-link:hover {
+  /* CHANGED: yellow hover replaced with theme-consistent purple */
+  color: var(--accent-purple);
+}
+
+@media (max-width: 600px) { h1 { font-size: 4rem; transform: translateY(-20vh); } .project-card { width: 220px; } }
+/* (End of ring.css) */

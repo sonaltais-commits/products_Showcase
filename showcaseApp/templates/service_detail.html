@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ project.Name }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body { background: #111; color: #fff; font-family: sans-serif; padding: 40px; }
+    img { max-width: 400px; border-radius: 10px; display: block; margin-bottom: 20px; }
+    /* Updated link styling section below */
+    a {
+        /* Reset default link styling */
+        text-decoration: none;
+
+        /* Button-like styling from the ring tiles */
+        background: #fff; /* White background */
+        width: 150px; /* Set a specific width for the button */
+        height: 36px; /* Set a specific height */
+        border-radius: 4px;
+        display: grid; /* Use grid to center text easily */
+        place-content: center; /* Center text vertically and horizontally */
+        color: #000000; /* Black text */
+        margin-top: 30px; /* Space it out from the image */
+        font-weight: bold;
+    }
+    <style>
+  body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      padding: 40px;
+  }
+  h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+  }
+  p {
+      margin-bottom: 10px;
+  }
+  img {
+      max-width: 400px;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 20px;
+  }
+  /* Updated Link/Button Styling */
+  a {
+      text-decoration: none;
+
+      /* Matching the Codepen button style (white background, black text) */
+      background: #fff;
+      width: 180px; /* Slightly wider for the full text */
+      height: 36px;
+      border-radius: 4px;
+
+      /* Centering content within the button */
+      display: grid;
+      place-content: center;
+      color: #000000;
+      font-weight: bold;
+      margin-top: 30px;
+
+      /* Optional Hover Effect */
+      transition: background 0.2s;
+  }
+  a:hover {
+      background: #eee;
+  }
+</style>
+  </style>
+</head>
+<body>
+  <h1>{{ project.Name }}</h1>
+  <p><strong>Type:</strong> {{ project.Type }}</p>
+  <img src="{{ project.Image }}" alt="{{ project.Name }}">
+
+    <p><strong>Application:</strong> {{ project.Published }}</p>
+    <p><a href="{% url 'services_index' %}">← Back to all services</a></p>
+
+</body>
+</html>

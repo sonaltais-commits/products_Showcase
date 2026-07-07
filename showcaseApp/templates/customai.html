@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom AI Model Training</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #091e3e, #1a3b6d, #091e3e);
+    }
+    .category-card {
+      background: radial-gradient(circle at bottom center, #6530ff, #091e3e, #000000);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .gallery-item {
+      flex: 0.5 1 220px;
+      height: 20rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+      z-index: 2;
+    }
+    .gallery-img, .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.35s ease;
+    }
+    .gallery-item:hover .gallery-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+  <div class="max-w-7xl mx-auto space-y-16">
+    <h1 class="text-4xl font-bold text-center text-white mb-2">Custom AI Model Training Gallery</h1>
+    <p class="text-center text-gray-300 mb-12">Explore examples of AI model training and applications in action</p>
+
+    <!-- Medical AI Models: 1 item -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Medical AI Models</h2>
+      <p class="text-gray-300">AI models trained to detect medical conditions from scans.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem; flex-basis: 100%; max-width: 700px;">
+          <img src="{% static 'images/customai/bt_classifier.gif' %}" alt="Brain Tumour Classifier" class="gallery-img">
+          <div class="gallery-title">Brain Tumour Detection from Scan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Captcha Solvers: 2 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Captcha Solvers</h2>
+      <p class="text-gray-300">AI trained to solve different types of captchas automatically.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem;">
+          <video autoplay loop muted class="gallery-img">
+            <source src="{% static 'images/customai/captcha1.webm' %}" type="video/webm">
+          </video>
+          <div class="gallery-title">Captcha Solver - Type 1</div>
+        </div>
+        <div class="gallery-item" style="height: 30rem;">
+          <video autoplay loop muted class="gallery-img">
+            <source src="{% static 'images/customai/captcha2.mp4' %}" type="video/mp4">
+          </video>
+          <div class="gallery-title">Captcha Solver - Type 2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Object Detection: 1 item -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Object Detection</h2>
+      <p class="text-gray-300">Models trained to detect and label objects in images.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem; flex-basis: 100%; max-width: 700px;">
+          <img src="{% static 'images/customai/dogcat.jpg' %}" alt="Dog and Cat Detection" class="gallery-img">
+          <div class="gallery-title">Dog & Cat Object Detection</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gesture Recognition: 1 item -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Gesture Recognition</h2>
+      <p class="text-gray-300">AI models classifying hand gestures and predicting probabilities.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem; flex-basis: 100%; max-width: 700px;">
+          <img src="{% static 'images/customai/rpsdetect.jpg' %}" alt="Hand Sign Gesture Detection" class="gallery-img">
+          <div class="gallery-title">Rock-Paper-Scissors Gesture Detection</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stock Prediction: 1 item -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Stock Prediction</h2>
+      <p class="text-gray-300">AI models predicting stock prices from historical data.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem; flex-basis: 100%; max-width: 700px;">
+          <img src="{% static 'images/customai/stockprediction.jpg' %}" alt="Stock Price Prediction" class="gallery-img" style="object-fit: contain;">
+          <div class="gallery-title">Stock Price Prediction Graph</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Language Model Training: 2 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Language Model Training</h2>
+      <p class="text-gray-300">Demonstration of AI trained on language datasets to generate predictions from input text.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem;">
+          <img src="{% static 'images/customai/languagedataset.png' %}" alt="Language Model Dataset" class="gallery-img">
+          <div class="gallery-title">Language Model Training Dataset</div>
+        </div>
+        <div class="gallery-item" style="height: 30rem;">
+          <img src="{% static 'images/customai/languageoutput.png' %}" alt="Language Model Output" class="gallery-img">
+          <div class="gallery-title">Predicted Language Output</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #091e3e, #1a3b6d, #091e3e);
+    }
+    .category-card {
+      background: radial-gradient(circle at bottom center, #6530ff, #091e3e, #000000);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .gallery-item {
+      flex: 0.5 1 220px;
+      height: 20rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+      z-index: 2;
+    }
+    .gallery-img, .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.35s ease;
+    }
+    .gallery-item:hover .gallery-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+  <div class="max-w-7xl mx-auto space-y-16">
+    <h1 class="text-4xl font-bold text-center text-white mb-2">Prompt Engineering Gallery</h1>
+    <p class="text-center text-gray-300 mb-12">Compare generic vs optimized prompts across different use cases</p>
+
+    <!-- PDF to JSON: 2 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">PDF Extraction → Structured JSON</h2>
+      <p class="text-gray-300">Uploaded a PDF and compared generic vs optimized prompt to generate structured JSON output.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 40rem;">
+          <img src="{% static 'images/promptengineering/genericprompt1.png' %}" alt="Generic Prompt PDF" class="gallery-img">
+          <div class="gallery-title">Generic Prompt Result</div>
+        </div>
+        <div class="gallery-item" style="height: 40rem;">
+          <img src="{% static 'images/promptengineering/optprompt1.png' %}" alt="Optimized Prompt PDF" class="gallery-img">
+          <div class="gallery-title">Optimized Prompt Result</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Summarization: 2 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Article Summarization</h2>
+      <p class="text-gray-300">Generic vs optimized prompts for summarizing an article into concise bullet points for executives.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 25rem;">
+          <img src="{% static 'images/promptengineering/genericprompt2.png' %}" alt="Generic Summarization Prompt" class="gallery-img" style="object-fit: fill;">
+          <div class="gallery-title">Generic Prompt: "Summarize this article."</div>
+        </div>
+        <div class="gallery-item" style="height: 25rem;">
+          <img src="{% static 'images/promptengineering/optprompt2.png' %}" alt="Optimized Summarization Prompt" class="gallery-img" style="object-fit: fill;">
+          <div class="gallery-title">Optimized Prompt: 3 bullet points under 15 words for execs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Role-Based Answering: 2 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Role-Based Answering</h2>
+      <p class="text-gray-300">Generic vs optimized prompts to explain data privacy in a role-specific manner.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 45rem;">
+          <img src="{% static 'images/promptengineering/genericprompt3.png' %}" alt="Generic Role Prompt" class="gallery-img">
+          <div class="gallery-title">Generic Prompt: "Explain data privacy in simple words."</div>
+        </div>
+        <div class="gallery-item" style="height: 45rem;">
+          <img src="{% static 'images/promptengineering/optprompt3.png' %}" alt="Optimized Role Prompt" class="gallery-img">
+          <div class="gallery-title">Optimized Prompt: Lawyer explains to 12-year-old</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Creative Marketing: 2 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Creative Marketing Copy</h2>
+      <p class="text-gray-300">Generic vs optimized prompts for generating engaging marketing posts.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 25rem;">
+          <img src="{% static 'images/promptengineering/genericprompt4.png' %}" alt="Generic Creative Prompt" class="gallery-img">
+          <div class="gallery-title">Generic Prompt: "Write a marketing post about coffee."</div>
+        </div>
+        <div class="gallery-item" style="height: 25rem;">
+          <img src="{% static 'images/promptengineering/optprompt4.png' %}" alt="Optimized Creative Prompt" class="gallery-img">
+          <div class="gallery-title">Optimized Prompt: LinkedIn post, witty & professional</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

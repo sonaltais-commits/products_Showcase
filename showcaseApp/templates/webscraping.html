@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Scraping Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #091e3e, #1a3b6d, #091e3e);
+    }
+    .category-card {
+      background: radial-gradient(circle at bottom center, #6530ff, #091e3e, #000000);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .gallery-item {
+      flex: 0.5 1 220px;
+      height: 20rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+      z-index: 2;
+    }
+    .gallery-img, .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.35s ease;
+    }
+    .gallery-item:hover .gallery-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Both image and video will have same height */
+/* Layout */
+/* Left Flow Chart */
+.flow-box{
+    width:100%;
+    background:#000;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.15);
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Image */
+.flow-img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+}
+
+/* Video */
+.video-box{
+    width:100%;
+    height:40rem;
+    border-radius:18px;
+    overflow:hidden;
+    background:#000;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.video-box video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+  </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+  <div class="max-w-7xl mx-auto space-y-16">
+    <h1 class="text-4xl font-bold text-center text-white mb-2">Web Scraping Gallery</h1>
+    <p class="text-center text-gray-300 mb-12">Hover over images and videos to explore different web scraping projects</p>
+
+    <!-- Category: E-commerce Scraper -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">E-commerce Data Scraper</h2>
+      <p class="text-gray-300">Shows scraping from an e-commerce site using Python and extracting product info.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem;">
+          <img src="{% static 'images/webscraping/webscrap1.gif' %}" alt="E-commerce Scraper GIF" class="gallery-img">
+          <div class="gallery-title">Scraping Products from E-commerce Site</div>
+        </div>
+        <div class="gallery-item" style="height: 30rem;">
+          <img src="{% static 'images/webscraping/webscrap2.PNG' %}" alt="Scraped Data Display" class="gallery-img">
+          <div class="gallery-title">Left: Website | Right: Extracted Data</div>
+        </div>
+      </div>
+    </div>
+
+
+
+        <!-- Category: YouTube Channel Scraper -->
+
+    <div class="category-card">
+  <h2 class="text-3xl font-bold mb-4">YouTube Channel Scraper</h2>
+
+  <p class="text-gray-300 mb-8">
+    Scrapes video titles, likes, comments from a channel using a Tkinter GUI frontend.
+  </p>
+
+  <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+
+    <!-- Left : Flow Chart -->
+<div class="w-full lg:w-[35%]">
+    <div class="flow-box">
+        <img
+    src="{% static 'images/webscraping/youtube.png' %}"
+    alt="Real Estate Voice Agent Flow"
+    class="flow-img">
+    </div>
+</div>
+
+    <!-- Right : Video -->
+<div class="w-full lg:w-[65%]">
+    <div class="gallery-item video-box">
+        <video controls autoplay loop muted class="gallery-img">
+            <source src="{% static 'images/webscraping/youtubescrapper.webm' %}" type="video/mp4">
+        </video>
+    </div>
+</div>
+  </div>
+</div>
+
+
+    <!-- Category: Product Images Downloader -->
+
+        <div class="category-card">
+  <h2 class="text-3xl font-bold mb-4">Product Images Downloader</h2>
+
+  <p class="text-gray-300 mb-8">
+    Scrapes product images from a website and organizes them in folders by product name.
+  </p>
+
+  <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+
+    <!-- Left : Flow Chart -->
+<div class="w-full lg:w-[35%]">
+    <div class="flow-box">
+        <img
+    src="{% static 'images/webscraping/product_image.png' %}"
+    alt="Real Estate Voice Agent Flow"
+    class="flow-img">
+    </div>
+</div>
+
+    <!-- Right : Video -->
+<div class="w-full lg:w-[65%]">
+    <div class="gallery-item video-box">
+        <video controls autoplay loop muted class="gallery-img">
+            <source src="{% static 'images/webscraping/Website_image_downloader.webm' %}" type="video/mp4">
+        </video>
+    </div>
+</div>
+  </div>
+</div>
+
+
+
+
+
+
+  </div> <!-- closes max-w-7xl -->
+</body>
+</html>

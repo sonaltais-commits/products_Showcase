@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Processing Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #091e3e, #1a3b6d, #091e3e);
+    }
+    .category-card {
+      background: radial-gradient(circle at bottom center, #6530ff, #091e3e, #000000);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .gallery-item {
+      flex: 0.5 1 220px;
+      height: 20rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+      z-index: 2;
+    }
+    .gallery-img, .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.35s ease;
+    }
+    .gallery-item:hover .gallery-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+  <div class="max-w-7xl mx-auto space-y-16">
+    <h1 class="text-4xl font-bold text-center text-white mb-2">Image Processing Gallery</h1>
+    <p class="text-center text-gray-300 mb-12">Explore AI-powered image analysis and transformation projects</p>
+
+    <!-- Object Detection: 3 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Object Detection</h2>
+      <p class="text-gray-300">Detect and identify multiple objects within images or videos using advanced AI models. Perfect for surveillance, robotics, and image analysis applications.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 25rem;">
+          <img src="{% static 'images/image_processing/gif3.gif' %}" alt="Mountain View" class="gallery-img">
+          <div class="gallery-title">Mountain View</div>
+        </div>
+        <div class="gallery-item" style="height: 25rem;">
+          <img src="{% static 'images/image_processing/gif4.gif' %}" alt="Night Path" class="gallery-img">
+          <div class="gallery-title">Night Path</div>
+        </div>
+        <div class="gallery-item" style="height: 25rem;">
+          <img src="{% static 'images/image_processing/girls imagedetection.jpg' %}" alt="Girls Image Segmentation" class="gallery-img">
+          <div class="gallery-title">Girls Image Segmentation</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Posture Detection: 2 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Posture Detection</h2>
+      <p class="text-gray-300">Analyze human poses to monitor posture, activity, or gestures. Useful for fitness apps, ergonomics, and behavior analysis.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem;">
+          <img src="{% static 'images/image_processing/img_pose.jpg' %}" alt="Pose Analysis" class="gallery-img">
+          <div class="gallery-title">Pose Analysis</div>
+        </div>
+        <div class="gallery-item" style="height: 30rem;">
+          <img src="{% static 'images/image_processing/gif1.gif' %}" alt="Fox in Snow" class="gallery-img">
+          <div class="gallery-title">Fox in Snow</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number Plate Detection: 2 items -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">Number Plate Detection</h2>
+      <p class="text-gray-300">Automatically detect and read vehicle number plates. Ideal for traffic monitoring, parking systems, and security applications.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem;">
+          <img src="{% static 'images/image_processing/noplate1.png' %}" alt="Number Plate 1" class="gallery-img">
+          <div class="gallery-title">Number Plate 1</div>
+        </div>
+        <div class="gallery-item" style="height: 30rem;">
+          <img src="{% static 'images/image_processing/noplate2.png' %}" alt="Number Plate 2" class="gallery-img">
+          <div class="gallery-title">Number Plate 2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Makeup Transformation: 1 item -->
+    <div class="category-card">
+      <h2 class="text-3xl font-bold mb-4">AI Makeup Transformation</h2>
+      <p class="text-gray-300">See how AI can transform a face: the left side shows the original look, while the right side demonstrates hair styling, makeup, and lipstick applied using AI technology.</p>
+      <div class="gallery-container">
+        <div class="gallery-item" style="height: 30rem; flex-basis: 100%; max-width: 700px;">
+          <img src="{% static 'images/image_processing/imgsample.png' %}" alt="AI Makeup Transformation" class="gallery-img">
+          <div class="gallery-title">AI Makeup Transformation</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

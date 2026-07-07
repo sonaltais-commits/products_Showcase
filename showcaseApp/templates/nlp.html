@@ -1,0 +1,311 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NLP Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+
+body{
+    background: linear-gradient(135deg,#091e3e,#1a3b6d,#091e3e);
+}
+
+.category-card{
+    background: radial-gradient(circle at bottom center,#6530ff,#091e3e,#000000);
+    border:2px solid rgba(255,255,255,.15);
+    border-radius:18px;
+    padding:2rem;
+    box-shadow:0 12px 30px rgba(0,0,0,.45);
+          text-align: center;
+
+}
+
+.gallery-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:1.5rem;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    background:#000;
+    transition:transform .35s ease, box-shadow .35s ease;
+
+    width:fit-content;
+    margin:auto;
+}
+
+.gallery-item:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 30px rgba(255,255,255,.35);
+}
+
+.gallery-img{
+    display:block;
+    margin:auto;
+
+    width:auto;
+    max-width:700px;     /* Medium width */
+    max-height:420px;    /* Medium height */
+
+    height:auto;
+    object-fit:contain;
+    border-radius:14px;
+}
+
+.gallery-title{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:16px;
+    background:rgba(0,0,0,.75);
+    color:#fff;
+    font-size:1rem;
+    font-weight:600;
+    opacity:0;
+    transform:translateY(100%);
+    transition:.35s;
+}
+
+.gallery-item:hover .gallery-title{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style><body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+
+<div class="max-w-7xl mx-auto space-y-12">
+
+    <!-- Hero -->
+
+    <div class="text-center">
+
+        <h1 class="text-5xl font-bold mb-5">
+            NLP Showcase
+        </h1>
+
+        <p class="text-lg text-gray-300 max-w-4xl mx-auto">
+            Explore Natural Language Processing solutions including Named Entity Recognition,
+            Sentiment Analysis, POS Tagging, Text Summarization, Translation, Question Answering,
+            Text Classification, Emotion Detection, and Intent Detection.
+        </p>
+
+    </div>
+
+    <!-- Category 1 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Named Entity Recognition (NER)
+        </h2>
+
+        <p class="text-gray-300">
+            Highlighting entities like Person, Date, Organization in text.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item" style="max-width:700px;">
+                <img src="{% static 'images/nlp/ner.png' %}" alt="NER Example" class="gallery-img">
+                <div class="gallery-title">NER Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 2 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Sentiment Analysis
+        </h2>
+
+        <p class="text-gray-300">
+            Analyzing text to determine positive, negative, or neutral sentiment.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item" style="max-width:700px;">
+                <img src="{% static 'images/nlp/sentiment.png' %}" alt="Sentiment Analysis" class="gallery-img">
+                <div class="gallery-title">Sentiment Analysis Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 3 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Part-of-Speech (POS) Tagging
+        </h2>
+
+        <p class="text-gray-300">
+            Showing word-level POS tags for sentences.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="{% static 'images/nlp/pos.png' %}" alt="POS Tagging" class="gallery-img">
+                <div class="gallery-title">POS Tagging Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 4 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Text Summarization
+        </h2>
+
+        <p class="text-gray-300">
+            Condensing long paragraphs into concise summaries.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="{% static 'images/nlp/summarization.png' %}" alt="Summarization" class="gallery-img">
+                <div class="gallery-title">Summarization Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 5 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Question Answering
+        </h2>
+
+        <p class="text-gray-300">
+            Extracting answers from context based on questions.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="{% static 'images/nlp/question_answering.png' %}" alt="Question Answering" class="gallery-img">
+                <div class="gallery-title">Question Answering Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 6 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Translation
+        </h2>
+
+        <p class="text-gray-300">
+            Translating text from one language to another.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="{% static 'images/nlp/translation.png' %}" alt="Translation" class="gallery-img">
+                <div class="gallery-title">Translation Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 7 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Text Classification
+        </h2>
+
+        <p class="text-gray-300">
+            Categorizing text into topics or labels.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="{% static 'images/nlp/classification.png' %}" alt="Text Classification" class="gallery-img">
+                <div class="gallery-title">Text Classification Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 8 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Emotion Detection
+        </h2>
+
+        <p class="text-gray-300">
+            Detecting emotions like happy, sad, angry from text.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="{% static 'images/nlp/emotiondetect.png' %}" alt="Emotion Detection" class="gallery-img">
+                <div class="gallery-title">Emotion Detection Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Category 9 -->
+
+    <div class="category-card">
+
+        <h2 class="text-3xl font-bold mb-4">
+            Intent Detection
+        </h2>
+
+        <p class="text-gray-300">
+            Understanding user intent from text queries.
+        </p>
+
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="{% static 'images/nlp/intentdetect.png' %}" alt="Intent Detection" class="gallery-img">
+                <div class="gallery-title">Intent Detection Example</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body></html>

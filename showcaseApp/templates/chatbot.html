@@ -1,0 +1,232 @@
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #091e3e, #1a3b6d, #091e3e);
+    }
+    .category-card {
+      background: radial-gradient(circle at bottom center, #6530ff, #091e3e, #000000);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      text-align: center;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .gallery-item {
+      flex: 0.5 1 220px;
+      height: 20rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+      z-index: 2;
+    }
+    .gallery-img, .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.35s ease;
+    }
+    .gallery-item:hover .gallery-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Both image and video will have same height */
+/* Layout */
+/* Left Flow Chart */
+.flow-box{
+    width:100%;
+    background:#000;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.15);
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Image */
+.flow-img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+/* Video */
+.video-box{
+    width:100%;
+    height:40rem;
+    border-radius:18px;
+    overflow:hidden;
+    background:#000;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.video-box video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+  </style>
+
+</head>
+
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+
+<div class="max-w-7xl mx-auto space-y-12">
+
+    <!-- Hero -->
+
+    <div class="text-center">
+
+        <h1 class="text-5xl font-bold mb-5">
+            Chatbot And LLM Integration Gallery
+        </h1>
+
+        <p class="text-lg text-gray-300 max-w-4xl mx-auto">
+            Explore AI-powered chatbots built with Python and modern LLMs for customer support,
+            document intelligence, and business automation.
+        </p>
+
+    </div>
+
+    <!-- Section: RAG ChatBot -->
+    <div class="category-card">
+        <h2 class="text-3xl font-bold mb-4 text-center">RAG ChatBot</h2>
+
+        <p class="text-gray-300 mb-8 font-bold text-center">
+            A RAG chatbot that lets users upload documents and ask questions in
+            natural language, delivering fast, accurate, and context-aware answers
+            from the uploaded content.
+        </p>
+
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+
+            <!-- Left : Flow Chart -->
+            <div class="w-full lg:w-[35%]">
+                <div class="flow-box">
+                    <img
+                        src="{% static 'images/Chatbot and LLM integration/ragchatbot flowchart.png' %}"
+                        alt="RAG ChatBot Flow"
+                        class="flow-img">
+                </div>
+            </div>
+
+            <!-- Right : Video -->
+            <div class="w-full lg:w-[65%]">
+                <div class="gallery-item video-box">
+                    <video controls autoplay loop muted class="gallery-img">
+                        <source src="{% static 'videos/RAG Chatbot Demo Video.mp4' %}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- AI Assistant -->
+    <div class="category-card">
+        <h2 class="text-3xl font-bold mb-4 text-center">Ai Assistant</h2>
+
+        <p class="text-gray-300 mb-8 font-bold text-center">
+            Upload PDF documents and interact with them through a conversational interface.
+            The chatbot retrieves relevant information and answers questions based on the uploaded content.
+        </p>
+
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+
+            <!-- Left : Flow Chart -->
+            <div class="w-full lg:w-[35%]">
+                <div class="flow-box">
+                    <img
+                        src="{% static 'images/Chatbot and LLM integration/AI Assistant.png' %}"
+                        alt="AI Assistant Flow"
+                        class="flow-img">
+                </div>
+            </div>
+
+            <!-- Right : Video -->
+            <div class="w-full lg:w-[65%]">
+                <div class="gallery-item video-box">
+                    <video controls autoplay loop muted class="gallery-img">
+                        <source src="{% static 'videos/Ai_Assistant.mp4' %}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Document Intelligence Chatbot -->
+    <div class="category-card">
+        <h2 class="text-3xl font-bold mb-4 text-center">
+            Document Intelligence Chatbot
+        </h2>
+
+        <p class="text-gray-300 mb-8 font-bold text-center">
+            A Python-powered document intelligence chatbot that delivers fast,
+            accurate, and context-aware answers from uploaded documents.
+        </p>
+
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+
+            <!-- Left : Flow Chart -->
+            <div class="w-full lg:w-[35%]">
+                <div class="flow-box">
+                    <img
+                        src="{% static 'images/Chatbot and LLM integration/Document Intelligence Chatbot.png' %}"
+                        alt="Document Intelligence Flow"
+                        class="flow-img">
+                </div>
+            </div>
+
+            <!-- Right : Video -->
+            <div class="w-full lg:w-[65%]">
+                <div class="gallery-item video-box">
+                    <video controls autoplay loop muted class="gallery-img">
+                        <source src="{% static 'videos/pythonweb.webm' %}" type="video/webm">
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body></html>
